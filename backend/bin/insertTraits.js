@@ -5,10 +5,10 @@ TRAITS.forEach( (TRAIT) => {
     const traitType = TRAIT.type;
     const traitValues = TRAIT.values;
 
-    traitValues.forEach((traitvalue) => {
+    traitValues.forEach((traitValue) => {
         pool.query(
             'INSERT INTO trait("traitType", "traitValue") VALUES($1, $2) RETURNING id',
-            [traitType, traitvalue],
+            [traitType, traitValue],
             (error, response) => {
                 if (error) return console.log(error);
 
@@ -17,5 +17,5 @@ TRAITS.forEach( (TRAIT) => {
                 console.log(`Inserted trait with - id: ${traitId}`);
             }
         );
-    })
+    });
 });

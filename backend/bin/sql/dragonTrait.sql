@@ -1,6 +1,4 @@
 CREATE TABLE dragonTrait(
-    "traitId" INTEGER,
-    "dragonId" INTEGER,
-    FOREIGN KEY("traitId") REFERENCES traid(id),
-    FOREIGN KEY("dragonId") REFERENCES dragon(id),
-)
+    "traitId" INTEGER REFERENCES trait (id),
+    "dragonId" INTEGER  REFERENCES dragon (id)
+);
