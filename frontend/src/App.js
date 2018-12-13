@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Generation from "./components/Generation";
+import Dragon from "./components/Dragon";
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Dragon Stack from React</h1>
           <Generation />
+          <Dragon />
         </header>
       </div>
     );
