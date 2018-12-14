@@ -12,7 +12,7 @@
         "type": "pattern",
         "values": [
             "plain",
-            "stripped",
+            "striped",
             "spotted",
             "patchy"
         ]
