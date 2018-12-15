@@ -1,14 +1,10 @@
 import React from "react";
+import {connect} from "react-redux";
+import { fetchGeneration } from "../actions/generation";
 
 const MIN_DELAY = 3000;
 
-export default class Generation extends React.Component {
-    state = {
-        generation: {
-            generationId: "",
-            expiration: ""
-        }
-    }
+class Generation extends React.Component {
 
     timer = null;
 
@@ -20,20 +16,8 @@ export default class Generation extends React.Component {
         clearTimeout(this.timer);
     }
 
-    fetchGeneration = () => {
-        return fetch("http://localhost:3001/generation")
-        .then(response => response.json())
-        .then(data => {
-            if (data.generation) {
-                this.setState({generation: data.generation})
-            }
-            return data.generation;
-        })
-        .catch(err => console.error(err));
-    }
-
     fetchNextGeneration = () => {
-        this.fetchGeneration().then(({ expiration }) => {
+        this.props.fetchGeneration().then(({ expiration }) => {
             const delay = this.getDelay(expiration);
             this.timer = setTimeout(this.fetchNextGeneration(), delay);
         });
@@ -45,7 +29,7 @@ export default class Generation extends React.Component {
     }
 
     render() {
-        const { generation } = this.state;
+        const { generation } = this.props;
 
         return (
             <div>
@@ -55,3 +39,13 @@ export default class Generation extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => ({
+    generation: state.generation
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    fetchGeneration: () => dispatch(fetchGeneration())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Generation);

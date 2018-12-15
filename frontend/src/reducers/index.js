@@ -1,11 +1,11 @@
-import { GENERATION_ACTION_TYPE } from "../actions/types";
+import { GENERATION } from "../actions/types";
 const DEFAULT_GENERATION = { generationId: "", expiration: ""};
 
-export const generationReducer = (state = {generation: DEFAULT_GENERATION}, action) => {
+export const generationReducer = (state = DEFAULT_GENERATION, action) => {
 
     switch(action.type) {
-        case GENERATION_ACTION_TYPE: 
-            return {generation: action.generation};
+        case GENERATION.FETCH_SUCCESS: 
+            return action.generation;
         default:
             return state;
     }
