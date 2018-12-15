@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Dragon Stack from React</h1>
+          <h1>Dragon Stack</h1>
           <Generation />
           <Dragon />
         </header>
