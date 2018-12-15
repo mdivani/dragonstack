@@ -27,6 +27,10 @@ export default class DragonAvatar extends React.Component {
 
     render() {
         const {generationId, dragonId, traits} = this.props.dragon;
+
+        if(!dragonId) {
+            return (<div>&nbsp;</div>);
+        }
         return (
             <div>
                 <span>G{generationId}.</span>

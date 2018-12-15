@@ -5,11 +5,6 @@ import DragonAvatar from "./DragonAvatar";
 import {Button} from "react-bootstrap";
 
 class Dragon extends React.Component {
-
-    componentDidMount() {
-        this.props.fetchDragon();
-    }
-
     getNewDragon = () => {
         this.props.fetchDragon();
     }
