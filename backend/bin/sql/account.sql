@@ -1,4 +1,5 @@
 CREATE TABLE account(
-    username VARCHAR(64) PRIMARY KEY,
-    pass VARCHAR(20) NOT NULL
+    id             SERIAL PRIMARY KEY,
+    "usernameHash" CHARACTER(64),
+    "passwordHash" CHARACTER(64) NOT NULL
 );
